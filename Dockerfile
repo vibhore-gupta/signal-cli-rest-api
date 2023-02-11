@@ -53,7 +53,7 @@ RUN cd /tmp/ \
 	&& rm -r /tmp/swag-${SWAG_VERSION}
 
 RUN cd /tmp/ \
-	&& wget -nv https://github.com/AsamK/signal-cli/releases/download/v${SIGNAL_CLI_VERSION}/signal-cli-${SIGNAL_CLI_VERSION}-Linux.tar.gz -O /tmp/signal-cli.tar.gz \
+	&& wget -nv https://github.com/vibhore-gupta/signal-cli/releases/download/v${SIGNAL_CLI_VERSION}/signal-cli-${SIGNAL_CLI_VERSION}.tar -O /tmp/signal-cli.tar.gz \
 	&& tar xf signal-cli.tar.gz
 
 # build native image with graalvm
@@ -68,7 +68,7 @@ RUN arch="$(uname -m)"; \
 
 RUN if [ "$(uname -m)" = "x86_64" ]; then \
 		cd /tmp \
-		&& git clone https://github.com/AsamK/signal-cli.git signal-cli-${SIGNAL_CLI_VERSION}-source \
+		&& git clone https://github.com/vibhore-gupta/signal-cli.git signal-cli-${SIGNAL_CLI_VERSION}-source \
 		&& cd signal-cli-${SIGNAL_CLI_VERSION}-source \
 		&& git checkout -q v${SIGNAL_CLI_VERSION} \
 		&& cd /tmp && tar xf gvm.tar.gz \
